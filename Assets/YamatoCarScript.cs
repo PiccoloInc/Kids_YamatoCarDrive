@@ -197,7 +197,7 @@ public class YamatoCarScript : MonoBehaviour
         {
             // 1 がおされたとき
             transform.position = startPosition;
-            transform.rotation = Quaternion.Euler(0, 0, 0);
+            transform.rotation = Quaternion.Euler(0, -90.0f, 0);
             speed = 0.0f;
 
         }
