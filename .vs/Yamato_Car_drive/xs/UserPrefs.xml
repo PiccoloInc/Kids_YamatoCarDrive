@@ -1,0 +1,16 @@
+﻿<Properties StartupConfiguration="{97E90D78-25D1-4023-6C93-F137D6B94268}|">
+  <MonoDevelop.Ide.ItemProperties.Assembly-CSharp PreferredExecutionTarget="Unity.Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/YamatoCarScript.cs">
+    <Files>
+      <File FileName="Assets/YamatoCarScript.cs" Line="63" Column="21" />
+      <File FileName="Assets/camerascript.cs" Line="1" Column="1" />
+      <File FileName="Assets/OSC/OSCServer.cs" Line="191" Column="1" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" />
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+  <MultiItemStartupConfigurations />
+</Properties>
