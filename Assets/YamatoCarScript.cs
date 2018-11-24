@@ -18,6 +18,49 @@ public class YamatoCarScript : MonoBehaviour
     public AudioSource audioSource2;
     private Vector3 startPosition;
 
+	bool upPressed = false;
+	bool leftPressed = false;
+	bool rightPressed = false;
+
+
+	public void OnLeftPressed() {
+		Debug.Log("onPressed");
+		leftPressed = true;
+	}
+	public void OnLeftReleased() {	
+		Debug.Log("onreleased");
+		leftPressed = false;
+	}
+	public void OnUpPressed() {
+		Debug.Log("onPressed");
+		upPressed = true;
+	}
+	public void OnUpReleased() {	
+		Debug.Log("onreleased");
+		upPressed = false;
+	}
+
+	public void OnRightPressed() {
+		Debug.Log("onPressed");
+		rightPressed = true;
+	}
+	public void OnRightReleased() {	
+		Debug.Log("onreleased");
+		rightPressed = false;
+	}
+
+	public void OnClick() {
+		Debug.Log("oncLick");
+
+		// x -= 2f;
+		// transform.rotation = Quaternion.Euler (0, x, 0);
+	}	
+	public void OnClick2() {
+		Debug.Log("oncLick2");
+		x += 2f;
+		transform.rotation = Quaternion.Euler (0, x, 0);
+	}
+
 
     // Use this for initialization
     void Start()
@@ -59,6 +102,18 @@ public class YamatoCarScript : MonoBehaviour
     {
         OSCHandler.Instance.UpdateLogs();
 
+		if (leftPressed) {
+			x -= 2;
+			transform.rotation = Quaternion.AngleAxis (x, Vector3.up);
+		}		
+
+		if (rightPressed) {
+			x += 2;
+			transform.rotation = Quaternion.AngleAxis (x, Vector3.up);
+		}		
+		if (upPressed) {
+			speed += 0.005f;
+		}
 
         //speed -= 0.001f;
         //if (speed < 0) {
