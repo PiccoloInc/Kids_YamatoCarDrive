@@ -4,6 +4,9 @@ using UnityEngine;
 
 public class YamatoCarScript : MonoBehaviour
 {
+
+    public Rigidbody rb;
+    float upspeed = 0.0f;
     float speed = 0.2f;
     float x = -80.0f;
     private long lastTimeStamp;
@@ -167,6 +170,17 @@ public class YamatoCarScript : MonoBehaviour
         }
 
         transform.position += transform.right * speed;
+
+        if (Input.GetKey(KeyCode.F)) {
+            Rigidbody rb2 = this.GetComponent<Rigidbody> ();  
+
+            Debug.Log("addforce");
+            upspeed += 0.2f;
+            Vector3 force = new Vector3 (0.0f,10.0f,1.0f);
+            rb2.AddForce(force, ForceMode.Impulse);
+            rb.AddForce(force);
+            
+        }
 
         if (Input.GetKey(KeyCode.LeftArrow))
         {
