@@ -3011,7 +3011,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 846a4ca840ab2420694b149f872daa07, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rb: {fileID: 0}
+  rb: {fileID: 54701370264655316}
   audioClip1: {fileID: 8300000, guid: fd1a820367a584b85906a68805648a5e, type: 3}
   audioSource1: {fileID: 82539121202069732}
   audioClip2: {fileID: 8300000, guid: 7f316e8dca9964df6a0855ecbc8b6981, type: 3}

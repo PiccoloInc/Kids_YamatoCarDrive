@@ -68,7 +68,7 @@ public class YamatoCarScript : MonoBehaviour
     // Use this for initialization
     void Start()
     {
-        OSCHandler.Instance.Init();
+        // OSCHandler.Instance.Init();
         lastTimeStamp = -1;
 
         MainCam = GameObject.Find("Camera1");
@@ -103,7 +103,7 @@ public class YamatoCarScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        OSCHandler.Instance.UpdateLogs();
+        // OSCHandler.Instance.UpdateLogs();
 
 		if (leftPressed) {
 			x -= 2;
@@ -124,50 +124,50 @@ public class YamatoCarScript : MonoBehaviour
         //}
         speed *= 1f;
 
-        foreach (KeyValuePair<string, ServerLog> item in OSCHandler.Instance.Servers)
-        {
-            for (int i = 0; i < item.Value.packets.Count; i++)
-            {
-                //				if (lastTimeStamp < item.Value.packets [i].TimeStamp) {
-                lastTimeStamp = item.Value.packets[i].TimeStamp;
+        // foreach (KeyValuePair<string, ServerLog> item in OSCHandler.Instance.Servers)
+        // {
+        //     for (int i = 0; i < item.Value.packets.Count; i++)
+        //     {
+        //         //				if (lastTimeStamp < item.Value.packets [i].TimeStamp) {
+        //         lastTimeStamp = item.Value.packets[i].TimeStamp;
 
-                string address = item.Value.packets[i].Address;
-                var dataType = item.Value.packets[i].Data[0];
-                var dataValue = item.Value.packets[i].Data[1];
-                Debug.Log("data = " + dataType + ", " + dataValue + ", address = " + address);
-                if ((int)dataValue == 1)
-                {
-                    if (dataType.Equals("bool"))
-                    {
-                        Debug.Log("aaaaaaaaa");
-                    }
-                }
-                if (dataType.Equals("int"))
-                {
-                    if (address.Equals("/up"))
-                    {
-                        speed += (int)dataValue * 0.001f;
-                    }
-                    if (address.Equals("/down"))
-                    {
-                        speed -= (int)dataValue * 0.001f;
-                    }
-                    if (address.Equals("/left"))
-                    {
-                        Debug.Log("left coming");
-                        x -= (float)dataValue * 0.5f;
-                        transform.rotation = Quaternion.Euler(0, x, 0);
-                    }
-                    if (address.Equals("/right"))
-                    {
-                        x += (float)dataValue * 0.5f;
-                        transform.rotation = Quaternion.Euler(0, x, 0);
-                    }
-                    //					}
+        //         string address = item.Value.packets[i].Address;
+        //         var dataType = item.Value.packets[i].Data[0];
+        //         var dataValue = item.Value.packets[i].Data[1];
+        //         Debug.Log("data = " + dataType + ", " + dataValue + ", address = " + address);
+        //         if ((int)dataValue == 1)
+        //         {
+        //             if (dataType.Equals("bool"))
+        //             {
+        //                 Debug.Log("aaaaaaaaa");
+        //             }
+        //         }
+        //         if (dataType.Equals("int"))
+        //         {
+        //             if (address.Equals("/up"))
+        //             {
+        //                 speed += (int)dataValue * 0.001f;
+        //             }
+        //             if (address.Equals("/down"))
+        //             {
+        //                 speed -= (int)dataValue * 0.001f;
+        //             }
+        //             if (address.Equals("/left"))
+        //             {
+        //                 Debug.Log("left coming");
+        //                 x -= (float)dataValue * 0.5f;
+        //                 transform.rotation = Quaternion.Euler(0, x, 0);
+        //             }
+        //             if (address.Equals("/right"))
+        //             {
+        //                 x += (float)dataValue * 0.5f;
+        //                 transform.rotation = Quaternion.Euler(0, x, 0);
+        //             }
+        //             //					}
 
-                }
-            }
-        }
+        //         }
+        //     }
+        // }
 
         transform.position += transform.right * speed;
 
